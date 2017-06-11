@@ -1,0 +1,20 @@
+version: "2"
+services:
+  hadoop-master:
+    build: .
+    privileged: true
+    container_name: hadoop-master
+    ports:
+      - "50070:50070"
+      - "9000:9000"
+      - "8088:8088"
+    volumes:
+      - "./shared:/home/shared"
+    tty: true
+  hadoop-slave1:
+    build: .
+    container_name: hadoop-slave1
+  hadoop-slave2:
+    build: .
+    container_name: hadoop-slave2
+
